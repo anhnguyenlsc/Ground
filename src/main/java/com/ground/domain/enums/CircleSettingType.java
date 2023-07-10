@@ -1,4 +1,4 @@
-package com.ground.usage.domain.commons.enums;
+package com.ground.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

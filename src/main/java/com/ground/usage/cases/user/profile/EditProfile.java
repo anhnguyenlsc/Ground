@@ -1,9 +1,9 @@
 package com.ground.usage.cases.user.profile;
 
 
-import com.ground.usage.domain.commons.base.Out;
-import com.ground.usage.domain.in.EditableProfile;
-import com.ground.usage.domain.out.User;
+import com.ground.usage.values.base.Out;
+import com.ground.usage.values.in.EditableProfile;
+import com.ground.usage.values.out.User;
 import reactor.core.publisher.Mono;
 
 /**

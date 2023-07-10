@@ -1,7 +1,7 @@
 package com.ground.data.models.documents;
 
 import com.ground.data.models.supports.Variant;
-import com.ground.usage.domain.commons.enums.CircleSettingType;
+import com.ground.domain.enums.CircleSettingType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.bson.types.ObjectId;

@@ -1,4 +1,4 @@
-package com.ground.usage.domain.commons.base;
+package com.ground.usage.values.base;
 
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;

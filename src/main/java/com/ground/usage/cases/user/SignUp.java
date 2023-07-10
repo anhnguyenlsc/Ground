@@ -1,8 +1,8 @@
 package com.ground.usage.cases.user;
 
-import com.ground.usage.domain.commons.base.Out;
-import com.ground.usage.domain.in.SignUpUser;
-import com.ground.usage.domain.out.User;
+import com.ground.usage.values.base.Out;
+import com.ground.usage.values.in.SignUpUser;
+import com.ground.usage.values.out.User;
 import reactor.core.publisher.Mono;
 
 /**

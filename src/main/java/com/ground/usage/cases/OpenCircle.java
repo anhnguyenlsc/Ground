@@ -1,10 +1,10 @@
 package com.ground.usage.cases;
 
 
-import com.ground.usage.domain.in.ApplyCircle;
-import com.ground.usage.domain.in.AproveCircle;
-import com.ground.usage.domain.in.RejectCircle;
-import com.ground.usage.domain.out.Circle;
+import com.ground.usage.values.in.ApplyCircle;
+import com.ground.usage.values.in.AproveCircle;
+import com.ground.usage.values.in.RejectCircle;
+import com.ground.usage.values.out.Circle;
 import reactor.core.publisher.Mono;
 
 /**
