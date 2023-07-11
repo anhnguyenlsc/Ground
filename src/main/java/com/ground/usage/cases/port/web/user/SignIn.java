@@ -1,4 +1,4 @@
-package com.ground.usage.cases.user;
+package com.ground.usage.cases.port.web.user;
 
 import com.ground.usage.values.base.Out;
 import com.ground.usage.values.in.SignInUserIN;

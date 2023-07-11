@@ -1,8 +1,8 @@
 package com.ground.services;
 
-import com.ground.usage.cases.user.SignIn;
-import com.ground.usage.cases.user.SignUp;
-import com.ground.usage.cases.user.profile.EditProfile;
+import com.ground.usage.cases.port.web.user.SignIn;
+import com.ground.usage.cases.port.web.user.SignUp;
+import com.ground.usage.cases.port.web.user.profile.EditProfile;
 import com.ground.usage.values.base.Out;
 import com.ground.usage.values.in.EditableProfileIN;
 import com.ground.usage.values.in.SignInUserIN;
