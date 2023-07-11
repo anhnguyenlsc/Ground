@@ -2,8 +2,8 @@ package com.ground.usage.cases.user.profile;
 
 
 import com.ground.usage.values.base.Out;
-import com.ground.usage.values.in.EditableProfile;
-import com.ground.usage.values.out.User;
+import com.ground.usage.values.in.EditableProfileIN;
+import com.ground.usage.values.out.UserOUT;
 import reactor.core.publisher.Mono;
 
 /**
@@ -16,14 +16,14 @@ public interface EditProfile {
    * <p>
    * view_your_profile_yourself
    */
-  public Mono<Out<User>> viewProfile();
+  public Mono<Out<UserOUT>> viewProfile();
 
   /**
    * 프로필 조회(타인)
    * <p>
    * view_other_people's_profile
    */
-  public Mono<Out<User>> viewProfile(String id);
+  public Mono<Out<UserOUT>> viewProfile(String id);
 
 
   /**
@@ -32,7 +32,7 @@ public interface EditProfile {
    * @return
    */
 
-  public Mono<Out<User>> editProfile(EditableProfile editableProfile);
+  public Mono<Out<UserOUT>> editProfile(EditableProfileIN editableProfile);
 
 
 }

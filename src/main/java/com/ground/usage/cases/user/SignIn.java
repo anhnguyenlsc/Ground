@@ -1,8 +1,8 @@
 package com.ground.usage.cases.user;
 
 import com.ground.usage.values.base.Out;
-import com.ground.usage.values.in.SignInUser;
-import com.ground.usage.values.out.User;
+import com.ground.usage.values.in.SignInUserIN;
+import com.ground.usage.values.out.UserOUT;
 import reactor.core.publisher.Mono;
 
 /**
@@ -16,7 +16,7 @@ public interface SignIn {
   /**
    * 로그인
    */
-  public Mono<User> in(SignInUser signInUser);
+  public Mono<UserOUT> in(SignInUserIN signInUser);
 
   /**
    * ID 찾기

@@ -1,4 +1,4 @@
 package com.ground.usage.values.in;
 
-public class EditableProfile {
+public class RejectCircleIN {
 }

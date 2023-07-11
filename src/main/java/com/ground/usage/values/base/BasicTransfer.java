@@ -1,4 +1,4 @@
-package com.ground.data.transfer.supports;
+package com.ground.usage.values.base;
 
 import lombok.Data;
 

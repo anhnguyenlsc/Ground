@@ -1,8 +1,8 @@
 package com.ground.usage.cases.user;
 
 import com.ground.usage.values.base.Out;
-import com.ground.usage.values.in.SignUpUser;
-import com.ground.usage.values.out.User;
+import com.ground.usage.values.in.SignUpUserIN;
+import com.ground.usage.values.out.UserOUT;
 import reactor.core.publisher.Mono;
 
 /**
@@ -26,7 +26,7 @@ public interface SignUp {
   /**
    * 등록
    */
-  public Mono<User> up(SignUpUser signUpUser);
+  public Mono<UserOUT> up(SignUpUserIN signUpUser);
 
   public Mono<Out<String>> verifyBySms(String phoneNumber);
   public Mono<Out<String>> verifyByEmail(String email);

@@ -1,7 +1,8 @@
 package com.ground.data.models.documents;
 
 import com.ground.data.models.supports.Variant;
-import com.ground.domain.enums.CircleSettingType;
+import com.ground.domain.enums.ContactProperty;
+import com.ground.domain.enums.circle.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.bson.types.ObjectId;
@@ -21,7 +22,7 @@ import static java.lang.String.format;
 @Document
 @SuperBuilder
 @Data
-public class _Circle extends Variant<String, _Circle.CircleType, _Circle.CircleStatus, _Circle.CircleProperty> {
+public class _Circle extends Variant<String, CircleType, CircleStatus, CircleProperty> {
 
   //서클이름
   private String name;
@@ -79,20 +80,6 @@ public class _Circle extends Variant<String, _Circle.CircleType, _Circle.CircleS
   private Map<String , Object> asset;
   @Deprecated (forRemoval = false)
   private Map<String , Object> credit;
-
-
-  public enum CircleType {
-    sports,work,community,hobbies,leisure,project,game,group,family,friends,journal,log,diary,gamble,lotto,
-
-    service, shop,colony, company, organization, school, club, team, union, alliance, agency, line
-  }
-  public enum CircleProperty {}
-  public enum CircleStatus {}
-  public enum ContactProperty {
-    country, zip, city, address1, address2,
-    phone, email, fax, website, socials;
-  }
-
 
 
   public enum Policy {

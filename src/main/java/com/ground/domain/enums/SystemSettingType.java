@@ -9,7 +9,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
-public enum CircleSettingType {
+public enum SystemSettingType {
 
   policy("정책", "서클의 운영 정책을 설정 합니다"),
   policy_access("공개", "서클을 사용자에게 공개하는 정책"),
@@ -31,7 +31,7 @@ public enum CircleSettingType {
   private String type;
   private Map<String, String> options;
 
-  CircleSettingType(String title, String description, String type) {
+  SystemSettingType(String title, String description, String type) {
     this.title = title;
     this.description = description;
     this.type = type;

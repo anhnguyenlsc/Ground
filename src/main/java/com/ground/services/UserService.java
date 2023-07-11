@@ -4,16 +4,29 @@ import com.ground.usage.cases.user.SignIn;
 import com.ground.usage.cases.user.SignUp;
 import com.ground.usage.cases.user.profile.EditProfile;
 import com.ground.usage.values.base.Out;
-import com.ground.usage.values.in.EditableProfile;
-import com.ground.usage.values.in.SignInUser;
-import com.ground.usage.values.in.SignUpUser;
-import com.ground.usage.values.out.User;
+import com.ground.usage.values.in.EditableProfileIN;
+import com.ground.usage.values.in.SignInUserIN;
+import com.ground.usage.values.in.SignUpUserIN;
+import com.ground.usage.values.out.UserOUT;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+@Service
+@RequiredArgsConstructor
 public class UserService implements SignIn, SignUp, EditProfile {
 
+  private final ReactiveMongoTemplate MongoOps;
+
+
   @Override
-  public Mono<User> in(SignInUser signInUser) {
+  public Mono<UserOUT> in(SignInUserIN signIn) {
+
+
+
+    //SignInUserIN.of("","");
+
     return null;
   }
 
@@ -28,7 +41,7 @@ public class UserService implements SignIn, SignUp, EditProfile {
   }
 
   @Override
-  public Mono<User> up(SignUpUser signUpUser) {
+  public Mono<UserOUT> up(SignUpUserIN signUpUser) {
     return null;
   }
 
@@ -53,17 +66,17 @@ public class UserService implements SignIn, SignUp, EditProfile {
   }
 
   @Override
-  public Mono<Out<User>> viewProfile() {
+  public Mono<Out<UserOUT>> viewProfile() {
     return null;
   }
 
   @Override
-  public Mono<Out<User>> viewProfile(String id) {
+  public Mono<Out<UserOUT>> viewProfile(String id) {
     return null;
   }
 
   @Override
-  public Mono<Out<User>> editProfile(EditableProfile editableProfile) {
+  public Mono<Out<UserOUT>> editProfile(EditableProfileIN editableProfile) {
     return null;
   }
 }

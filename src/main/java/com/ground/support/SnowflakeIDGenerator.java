@@ -11,10 +11,14 @@ import java.util.Enumeration;
 import java.util.Random;
 
 /**
- * Generate unique IDs using the Twitter Snowflake algorithm (see https://github.com/twitter/snowflake). Snowflake IDs
- * are 64 bit positive longs composed of:
+ * Generate unique IDs using the Twitter Snowflake algorithm (see https://github.com/twitter/snowflake).
+ * <p>
+ * Snowflake IDs are 64 bit positive longs composed of:
+ * <p>
  * - 41 bits time stamp
+ * <p>
  * - 10 bits machine id
+ * <p>
  * - 12 bits sequence number
  *
  */

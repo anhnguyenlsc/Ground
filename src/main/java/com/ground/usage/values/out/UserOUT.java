@@ -1,4 +1,4 @@
 package com.ground.usage.values.out;
 
-public class ClassifiedCircles {
+public class UserOUT {
 }

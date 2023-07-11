@@ -1,10 +1,10 @@
-package com.ground.usage.cases;
+package com.ground.usage.cases.circle;
 
 
-import com.ground.usage.values.in.ApplyCircle;
-import com.ground.usage.values.in.AproveCircle;
-import com.ground.usage.values.in.RejectCircle;
-import com.ground.usage.values.out.Circle;
+import com.ground.usage.values.in.ApplyCircleIN;
+import com.ground.usage.values.in.AproveCircleIN;
+import com.ground.usage.values.in.RejectCircleIN;
+import com.ground.usage.values.out.CircleOUT;
 import reactor.core.publisher.Mono;
 
 /**
@@ -28,10 +28,10 @@ import reactor.core.publisher.Mono;
 
 public interface OpenCircle {
 
-  public Mono<Circle> apply(ApplyCircle applyCircle);
+  public Mono<CircleOUT> apply(ApplyCircleIN applyCircle);
 
-  public Mono<Circle> aprove(AproveCircle aproveCircle);
+  public Mono<CircleOUT> aprove(AproveCircleIN aproveCircle);
 
-  public Mono<Circle> reject(RejectCircle rejectCircle);
+  public Mono<CircleOUT> reject(RejectCircleIN rejectCircle);
 
 }
