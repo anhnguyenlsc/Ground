@@ -1,6 +1,7 @@
 package com.ground.data.models.documents.reaction;
 
-import com.ground.data.models.documents._Reaction;
+import com.ground.data.models.documents._Activity;
+import com.ground.domain.enums.activity.ActivityType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Getter
 @Setter
-public class Comment extends _Reaction {
+public class Comment extends _Activity {
   /*
   links & comments
 /api/comment
@@ -43,6 +44,6 @@ public class Comment extends _Reaction {
    */
 
   @Builder.Default
-  private final Type type = Type.comment;
+  private final ActivityType type = ActivityType.comment;
 
 }

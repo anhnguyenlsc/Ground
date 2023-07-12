@@ -1,7 +1,22 @@
+server:
+  servlet:
+    session:
+      timeout: 30m
+
 spring:
   data:
     redis:
-      url: redis://default:cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q@redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com:16267
+#      url: redis://default:cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q@redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com:16267
+      host: redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com
+      port: 16267
+      username: default
+      password: cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q
     mongodb:
       uri: mongodb+srv://marvel:aAadVk2kmrKACVbS@cluster0.iip4m.mongodb.net
       database: ground
+  session:
+    redis:
+      flush-mode: on-save
+      namespace: spring:session
+
+

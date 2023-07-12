@@ -45,7 +45,10 @@ public class _Circle extends Variant<String, CircleType, CircleStatus, CirclePro
   //상위 서클로의 확산 여부
   //Whether it spreads to the upper circles
   private boolean propagation;
+
+  //credit policy
   private Policy policy;
+
 
   //위치 정보 - 위치기반 서비스에 활용
   private GeoJsonPoint location;
