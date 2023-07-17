@@ -48,7 +48,7 @@ dependencies {
             classifier = "osx-aarch_64"
         }
     }
-
+    implementation 'com.auth0:java-jwt:4.4.0'
     implementation 'org.telegram:telegrambots-spring-boot-starter:6.5.0'
     implementation 'org.telegram:telegrambotsextensions:5.1.1'
 

@@ -18,6 +18,8 @@ import static java.lang.String.format;
 
 /**
  * 상업적 또는 비상업적 모임 단위(group,colony,community)
+ *
+ * 수익의 창출은 circle만 가능하다. (user는 불가능)
  */
 @Document
 @SuperBuilder
@@ -39,6 +41,10 @@ public class _Circle extends Variant<String, CircleType, CircleStatus, CirclePro
   //서클의 관리자
   @DBRef
   private List<_User> moderators;
+
+  //Distribution Plan
+  private Distribution distributionPlan;
+
 
   //계통, 계열( circle id list)
   private List<String> lineage;
@@ -101,6 +107,18 @@ public class _Circle extends Variant<String, CircleType, CircleStatus, CirclePro
   public static class Domain {
     private String name;
     private String description;
+  }
+
+  public static class Distribution{
+
+  }
+
+  public static class _Distribution{
+
+    /**
+     * 매출액
+     */
+    private Long turnover;
   }
 
 

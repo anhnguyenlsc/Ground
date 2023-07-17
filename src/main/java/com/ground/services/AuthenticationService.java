@@ -1,8 +1,8 @@
 package com.ground.services;
 
 import com.ground.data.repositories.UserRepository;
-import com.ground.usage.cases.port.web.user.SignIn;
-import com.ground.usage.cases.port.web.user.SignUp;
+import com.ground.usage.cases.port.api.user.SignIn;
+import com.ground.usage.cases.port.api.user.SignUp;
 import com.ground.usage.values.base.Out;
 import com.ground.usage.values.in.SignInUserIN;
 import com.ground.usage.values.in.SignUpUserIN;

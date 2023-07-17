@@ -1,4 +1,4 @@
-package com.ground.usage.cases.port.web.user.profile;
+package com.ground.usage.cases.port.api.user.profile;
 
 
 import com.ground.usage.values.base.Out;

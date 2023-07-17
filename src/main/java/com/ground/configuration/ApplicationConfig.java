@@ -14,4 +14,11 @@ public class ApplicationConfig {
   public SnowflakeIDGenerator snowflakeIDGenerator() {
     return new SnowflakeIDGenerator(0);
   }
+
+  /*
+  public WebProperties.LocaleResolver localeResolver() {
+    return new SessionLocaleResolver();
+  }
+
+   */
 }
