@@ -1,8 +1,8 @@
 package com.ground.usage.cases.port.api.user;
 
 import com.ground.usage.values.base.Out;
-import com.ground.usage.values.in.SignUpUserIN;
 import com.ground.usage.values.out.UserOUT;
+import lombok.Value;
 import reactor.core.publisher.Mono;
 
 /**
@@ -21,12 +21,12 @@ import reactor.core.publisher.Mono;
  *
  */
 
-public interface SignUp {
+public interface SignUpUC {
 
   /**
    * 등록
    */
-  public Mono<UserOUT> up(SignUpUserIN signUpUser);
+  public Mono<UserOUT> up(InStep1 in);
 
   public Mono<Out<String>> verifyBySms(String phoneNumber);
   public Mono<Out<String>> verifyByEmail(String email);
@@ -39,5 +39,26 @@ public interface SignUp {
    * 중복확인
    */
   public Mono<Boolean> isItValidName(String name);
+
+  @Value(staticConstructor = "of")
+  public static class InStep1 {
+
+    private String idOrEmail;
+    private String password;
+    private String name;
+    private String phoneNumber;
+    private String email;
+
+  }
+  @Value(staticConstructor = "of")
+  public static class InStep2 {
+
+    private String idOrEmail;
+    private String password;
+    private String name;
+    private String phoneNumber;
+    private String email;
+
+  }
 
 }

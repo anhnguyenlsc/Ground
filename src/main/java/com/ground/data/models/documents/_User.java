@@ -27,14 +27,15 @@ public class _User extends Variant<String, _User.Type, _User.Status, _User.Prope
   private boolean _accountNonLocked = true;
   private boolean _credentialsNonExpired = true;
 
-  private Type _type;
-  private Status _status;
+  //private Type _type;
+  //private Status _status;
+  //private Map<Property, Object> _properties;
+
+  private Map<String, Object> _meta;
 
   @DBRef
   private List<_Circle> _circles;
 
-  private Map<Property, Object> _properties;
-  private Map<String, Object> _meta;
 
 
   @Override

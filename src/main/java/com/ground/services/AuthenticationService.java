@@ -2,10 +2,9 @@ package com.ground.services;
 
 import com.ground.data.repositories.UserRepository;
 import com.ground.usage.cases.port.api.user.SignIn;
-import com.ground.usage.cases.port.api.user.SignUp;
+import com.ground.usage.cases.port.api.user.SignUpUC;
 import com.ground.usage.values.base.Out;
 import com.ground.usage.values.in.SignInUserIN;
-import com.ground.usage.values.in.SignUpUserIN;
 import com.ground.usage.values.out.UserOUT;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
@@ -14,7 +13,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService implements SignIn, SignUp  {
+public class AuthenticationService implements SignIn, SignUpUC {
 
   private final ReactiveMongoTemplate mongoOps;
   private final UserRepository userRep;
@@ -35,7 +34,7 @@ public class AuthenticationService implements SignIn, SignUp  {
   }
 
   @Override
-  public Mono<UserOUT> up(SignUpUserIN signUpUser) {
+  public Mono<UserOUT> up(InStep1 signUpUser) {
     return null;
   }
 
