@@ -1,6 +1,6 @@
 package com.ground.usage.cases.port.api.user;
 
-import com.ground.usage.values.base.Out;
+import com.ground.usage.values.base.TransferOut;
 import com.ground.usage.values.in.SignInUserIN;
 import com.ground.usage.values.out.UserOUT;
 import reactor.core.publisher.Mono;
@@ -21,12 +21,12 @@ public interface SignIn {
   /**
    * ID 찾기
    */
-  public Mono<Out<String>> findIdByEmail(String email);
+  public Mono<TransferOut<String>> findIdByEmail(String email);
 
   /**
    * 비밀번호 찾기
    */
-  public Mono<Out<String>> findPasswordById(String id);
+  public Mono<TransferOut<String>> findPasswordById(String id);
 
 
 

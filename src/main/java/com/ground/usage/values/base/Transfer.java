@@ -7,7 +7,7 @@ import java.time.Instant;
 
 
 @Data
-public class BasicTransfer<I extends Serializable> {
+public class Transfer<I extends Serializable> {
 
 
   private I id;
