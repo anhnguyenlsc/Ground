@@ -1,11 +1,13 @@
 spring:
   data:
-    redis:
-      url: redis://default:cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q@redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com:16267
+#    redis:
+#      url: redis://default:cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q@redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com:16267
     mongodb:
       uri: mongodb+srv://marvel:aAadVk2kmrKACVbS@cluster0.iip4m.mongodb.net
       database: ground
-
+  security:
+    jwt:
+      secret: 9c4d1203c8fbe058c921d7531cabc6b06d2ac63a
 logging:
   level:
     root: debug

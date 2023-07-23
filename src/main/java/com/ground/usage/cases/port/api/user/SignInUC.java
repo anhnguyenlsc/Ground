@@ -1,7 +1,7 @@
 package com.ground.usage.cases.port.api.user;
 
 import com.ground.usage.values.base.TransferOut;
-import com.ground.usage.values.in.SignInUserIN;
+import com.ground.usage.values.in.SignInIN;
 import com.ground.usage.values.out.UserOUT;
 import reactor.core.publisher.Mono;
 
@@ -11,12 +11,12 @@ import reactor.core.publisher.Mono;
  *
  */
 
-public interface SignIn {
+public interface SignInUC {
 
   /**
    * 로그인
    */
-  public Mono<UserOUT> in(SignInUserIN signInUser);
+  public Mono<UserOUT> in(SignInIN signInUser);
 
   /**
    * ID 찾기

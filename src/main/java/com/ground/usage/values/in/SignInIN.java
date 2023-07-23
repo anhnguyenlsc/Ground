@@ -3,9 +3,9 @@ package com.ground.usage.values.in;
 import lombok.Value;
 
 @Value(staticConstructor = "of")
-public class SignInUserIN {
+public class SignInIN {
 
-  private String id;
+  private String username;
   private String password;
 
   private Boolean rememberMe;

@@ -20,8 +20,8 @@ public class _User extends Variant<String, _User.Type, _User.Status, _User.Prope
   /**
    * UserDetails
    */
-  private String _password;
-  private Collection<UserAuthority> _authorities;
+  private String _password;//authentication
+  private Collection<UserAuthority> _authorities;//authorization
   private boolean _enabled = true;
   private boolean _accountNonExpired = true;
   private boolean _accountNonLocked = true;
