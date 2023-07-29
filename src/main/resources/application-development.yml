@@ -3,7 +3,8 @@ spring:
 #    redis:
 #      url: redis://default:cvcOi1y9TzELEEKRriSjY5YFrp93VI4Q@redis-16267.c302.asia-northeast1-1.gce.cloud.redislabs.com:16267
     mongodb:
-      uri: mongodb+srv://marvel:aAadVk2kmrKACVbS@cluster0.iip4m.mongodb.net
+#      uri: mongodb+srv://marvel:aAadVk2kmrKACVbS@cluster0.iip4m.mongodb.net
+      uri: mongodb+srv://quanphamlsc:quan_2002@chatbot.trqhh6o.mongodb.net
       database: ground
   security:
     jwt:
