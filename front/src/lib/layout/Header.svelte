@@ -40,8 +40,8 @@
 					<!-- Logo -->
 					<a class="flex items-center" href="/">
 						<span class="sr-only">GROUND LOGO</span>
-						<img src="" alt="">
-					</a>
+            <img class="h-10 w-auto" src="/logo.png" alt="GROUND Logo"/>
+          </a>
 					<div class="ml-4 hidden items-center space-x-16 md:flex lg:ml-[105px]">
 						<div class="shrink-0">
 							<a class="text-gray-900 hover:text-blue-500 dark:text-gray-100 dark:hover:text-blue-200 text-sm font-medium hover:no-underline" href="">HITS</a>
@@ -88,40 +88,38 @@
 					</div>
 
           <!-- USER NOT LOGIN (ANONYMOUS)-->
-<!--					<a class="ml-2 hidden h-[35px] w-[85px] items-center justify-center rounded-3xl border border-gray-500/30 bg-white text-center text-xs font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none dark:border-gray-500/70 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 sm:flex lg:ml-10" href="/login">SIGN IN</a>-->
-<!--					<button class="ml-2.5 hidden h-[35px] w-[85px] items-center justify-center rounded-3xl border border-transparent bg-blue-500 px-2 py-0.5 text-xs font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-offset-0 sm:flex">-->
-<!--						<a href="/signup">SIGN UP</a>-->
-<!--					</button>-->
+					<a class="ml-2 hidden h-[35px] w-[85px] items-center justify-center rounded-3xl border border-gray-500/30 bg-white text-center text-xs font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none dark:border-gray-500/70 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 sm:flex lg:ml-10" href="/login">SIGN IN</a>
+					<button class="ml-2.5 hidden h-[35px] w-[85px] items-center justify-center rounded-3xl border border-transparent bg-blue-500 px-2 py-0.5 text-xs font-medium text-white hover:bg-blue-400 focus:outline-none focus:ring-offset-0 sm:flex">
+						<a href="/signup">SIGN UP</a>
+					</button>
 
           <!-- USER LOGIN SUCCESS -->
-          <div class="ml-[102px] mr-5">
-            <a href="">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path>
-              </svg>
-            </a>
-          </div>
-          <div class="mr-5">
-            <div class="relative">
-              <button class="relative -my-1 flex h-8 w-6 items-center justify-center rounded-sm text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-          <div class="relative">
-            <div class="relative">
-              <button class="flex rounded-full bg-white focus:outline-none dark:bg-gray-800" type="button">
-                <span class="sr-only">Open user menu</span>
-                <span class="hidden flex-shrink-0 sm:flex">
-									<img class="h-8 w-8 rounded-full" src="" alt="">
-								</span>
-              </button>
-            </div>
-          </div>
-
-
+<!--          <div class="ml-[102px] mr-5">-->
+<!--            <a href="">-->
+<!--              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200">-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path>-->
+<!--              </svg>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--          <div class="mr-5">-->
+<!--            <div class="relative">-->
+<!--              <button class="relative -my-1 flex h-8 w-6 items-center justify-center rounded-sm text-gray-400 hover:text-blue-500 focus:outline-0 focus:ring-0 dark:hover:text-blue-200" type="button">-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-6 w-6">-->
+<!--                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>-->
+<!--                </svg>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="relative">-->
+<!--            <div class="relative">-->
+<!--              <button class="flex rounded-full bg-white focus:outline-none dark:bg-gray-800" type="button">-->
+<!--                <span class="sr-only">Open user menu</span>-->
+<!--                <span class="hidden flex-shrink-0 sm:flex">-->
+<!--									<img class="h-8 w-8 rounded-full" src="" alt="">-->
+<!--								</span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
 				</div>
 				<div class="right-0 flex shrink-0 md:hidden">
 					<button class="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-blue-500 last:-mr-2 hover:bg-gray-900/10 focus:outline-none dark:hover:bg-gray-100/10" id="headlessui-popover-button-:r0:" type="button" aria-expanded="false" data-headlessui-state="">

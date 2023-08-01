@@ -17,7 +17,7 @@ public class IndexPage {
     else if (oAuth2AuthenticationToken.getPrincipal().getAttributes().containsKey("username")) {
       System.out.println("-------> USERNAME: " + oAuth2AuthenticationToken.getPrincipal().getAttributes().get("username"));
     }
-    return Rendering.redirectTo("http://localhost:5173").build();
+    return Rendering.redirectTo("http://localhost:5174").build();
   }
 
   //  @GetMapping("/signup")
