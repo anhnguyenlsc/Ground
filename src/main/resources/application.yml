@@ -41,10 +41,10 @@ spring:
         registration:
           google:
             client-id: 717048204630-tphrgp3hfn1fheiehrtrfv9hijc5m4gf.apps.googleusercontent.com
-            client-secret: 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
-            scope:
-              - email
-              - username
+            client-secret: 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
+#            scope:
+#              - email
+#              - username
           facebook:
             client-id: 595915086007723
             client-secret: 60d39926cc65a63bf5a29c680a4a3b65

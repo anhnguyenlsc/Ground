@@ -13,7 +13,6 @@ public class GroundApplication {
     SpringApplication.run(GroundApplication.class, args);
   }
 
-
   @GetMapping("/websession")
   public Mono<String> getSession(WebSession session) {
     session.start();
