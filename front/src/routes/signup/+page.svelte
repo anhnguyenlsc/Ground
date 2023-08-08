@@ -1,8 +1,3 @@
-<svelte:head>
-	<title>Sign Up</title>
-	<meta name="description" content="" />
-</svelte:head>
-
 <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
 	<div class="w-full relative py-3 sm:max-w-lg sm:mx-auto">
 		<div

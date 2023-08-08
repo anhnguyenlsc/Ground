@@ -1,0 +1,16 @@
+{
+  "include": [
+    "src",
+    "types"
+  ],
+  "extends":[
+    "./.svelte-kit/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "types": ["vite/client"],
+    "target": "ESNext",
+  }
+}
