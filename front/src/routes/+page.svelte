@@ -9,9 +9,11 @@
 
 	const token = $current.hash.substring(2);
 	// console.log('JWT: ' + token);
+
+  //Save JWT and principal to storage
 	authentication.signIn(token);
 	onMount(() => {
-		history.replaceState({}, "home" ,"/#/");		
+		history.replaceState({}, "home" ,"/#/");
 	})
 
 </script>
