@@ -2,9 +2,13 @@ package com.ground.data.models.documents;
 
 import com.ground.data.models.supports.Variant;
 import com.ground.domain.enums.authentication.UserAuthority;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Singular;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +19,7 @@ import java.util.Map;
 
 @Data
 @SuperBuilder
+@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 @Accessors(chain = true, prefix = "_")
 public class _User extends Variant<String, _User.Type, _User.Status, _User.Property> implements UserDetails {
   /**

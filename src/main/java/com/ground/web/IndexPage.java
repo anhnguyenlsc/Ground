@@ -8,17 +8,17 @@ import org.springframework.web.reactive.result.view.Rendering;
 
 @Controller
 public class IndexPage {
-  @CrossOrigin()
-  @GetMapping("/")
-  public Rendering index(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-    if (oAuth2AuthenticationToken.getPrincipal().getAttributes().containsKey("name")) {
-      System.out.println("-------> USERNAME: " + oAuth2AuthenticationToken.getPrincipal().getAttributes().get("name"));
-    }
-    else if (oAuth2AuthenticationToken.getPrincipal().getAttributes().containsKey("username")) {
-      System.out.println("-------> USERNAME: " + oAuth2AuthenticationToken.getPrincipal().getAttributes().get("username"));
-    }
-    return Rendering.redirectTo("http://localhost:5174").build();
-  }
+//  @CrossOrigin()
+//  @GetMapping("/")
+//  public Rendering index(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
+//    if (oAuth2AuthenticationToken.getPrincipal().getAttributes().containsKey("name")) {
+//      System.out.println("-------> USERNAME: " + oAuth2AuthenticationToken.getPrincipal().getAttributes().get("name"));
+//    }
+//    else if (oAuth2AuthenticationToken.getPrincipal().getAttributes().containsKey("username")) {
+//      System.out.println("-------> USERNAME: " + oAuth2AuthenticationToken.getPrincipal().getAttributes().get("username"));
+//    }
+//    return Rendering.redirectTo("http://localhost:5173").build();
+//  }
 
   //  @GetMapping("/signup")
 //  public String signup(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("phone") String phone, @RequestParam("birthday") String birthday) {

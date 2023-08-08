@@ -1,5 +1,8 @@
 package com.ground.support;
 
+import com.ground.data.models.documents._Member;
+import com.ground.data.models.documents._User;
+import com.ground.data.models.documents._Usser;
 import com.ground.domain.enums.authentication.UserAuthority;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -41,8 +44,8 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class SecurityUtils {
 
-  //@Value("${spring.security.jwt.secret}")
-  private String jwtSecret;
+//  @Value("${spring.security.jwt.secret}")
+  private String jwtSecret = "9c4d1203c8fbe058c921d7531cabc6b06d2ac63a";
 
   private ECKey eCKey;
   private ECDSAVerifier verifier;
@@ -58,13 +61,32 @@ public class SecurityUtils {
   }
 
 
-  public String encode(UsernamePasswordAuthenticationToken authentication) throws JOSEException {
+//  public String encode(UsernamePasswordAuthenticationToken authentication) throws JOSEException {
+//
+//    JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
+//        .claim("principal", authentication.getPrincipal())
+//        .claim("credentials", authentication.getCredentials())
+//        .claim("authorities", authentication.getAuthorities())
+//        .build();
+//
+//    // Create JWT for ES256K alg
+//    SignedJWT jwt = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.ES256).keyID(eCKey.getKeyID()).build(), claimsSet);
+//
+//    // Sign with private EC key
+//    jwt.sign(new ECDSASigner(eCKey));
+//
+//    return jwt.serialize();
+//
+//  }
 
+  public JwtAuthentication encode(JwtAuthentication authentication) throws JOSEException {
+
+    //member.id , member.name, user.authorities
     JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
-        .claim("principal", authentication.getPrincipal())
-        .claim("credentials", authentication.getCredentials())
-        .claim("authorities", authentication.getAuthorities())
-        .build();
+            .claim("principal", authentication.getPrincipal().getId())
+            .claim("name", authentication.getName())
+            .claim("details", authentication.getDetails().getId())
+            .claim("authorities", authentication.getAuthorities()).build();
 
     // Create JWT for ES256K alg
     SignedJWT jwt = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.ES256).keyID(eCKey.getKeyID()).build(), claimsSet);
@@ -72,21 +94,35 @@ public class SecurityUtils {
     // Sign with private EC key
     jwt.sign(new ECDSASigner(eCKey));
 
-    return jwt.serialize();
+    authentication.setCredentials(jwt.serialize());
+    return authentication;
 
   }
 
-  public UsernamePasswordAuthenticationToken decode(String token) throws ParseException, JOSEException {
+//  public UsernamePasswordAuthenticationToken decode(String token) throws ParseException, JOSEException {
+//    SignedJWT jwt = SignedJWT.parse(token);
+//    jwt.verify(verifier);
+//    JWTClaimsSet claimsSet = jwt.getJWTClaimsSet();
+//    var authenticationToken =  new UsernamePasswordAuthenticationToken(
+//        claimsSet.getStringClaim("principal"),
+//        claimsSet.getStringClaim("credentials"),
+//        claimsSet.getStringListClaim("authorities").stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList())
+//    );
+//    authenticationToken.setAuthenticated(true);
+//    return authenticationToken;
+//  }
+
+  public JwtAuthentication decode(String token) throws ParseException, JOSEException {
     SignedJWT jwt = SignedJWT.parse(token);
     jwt.verify(verifier);
     JWTClaimsSet claimsSet = jwt.getJWTClaimsSet();
-    var authenticationToken =  new UsernamePasswordAuthenticationToken(
-        claimsSet.getStringClaim("principal"),
-        claimsSet.getStringClaim("credentials"),
-        claimsSet.getStringListClaim("authorities").stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList())
-    );
-    authenticationToken.setAuthenticated(true);
-    return authenticationToken;
+
+    var principal = _Member.builder().id(claimsSet.getLongClaim("principal")).name(claimsSet.getStringClaim("name")).build();
+    var details = _Usser.builder()
+            .id(claimsSet.getStringClaim("details"))
+            .us_authorities(Arrays.stream(claimsSet.getStringArrayClaim("authorities")).map(m -> UserAuthority.valueOf(m)).collect(Collectors.toSet())).build();
+
+    return JwtAuthentication.builder().principal(principal).details(details).credentials(token).authenticated(true).build();
   }
 
 
@@ -95,14 +131,14 @@ public class SecurityUtils {
    *
    * @return the login of the current user.
    */
-  public static Mono<String> getCurrentUserLogin() {
-    return ReactiveSecurityContextHolder.getContext()
-    .map(SecurityContext::getAuthentication)
-    .filter(Authentication::isAuthenticated)
-    .map(Authentication::getPrincipal)
-    .map(UserDetails.class::cast)
-    .map(UserDetails::getUsername);
-  }
+//  public static Mono<String> getCurrentUserLogin() {
+//    return ReactiveSecurityContextHolder.getContext()
+//    .map(SecurityContext::getAuthentication)
+//    .filter(Authentication::isAuthenticated)
+//    .map(Authentication::getPrincipal)
+//    .map(UserDetails.class::cast)
+//    .map(UserDetails::getUsername);
+//  }
 
   /**
    * Check if a user is authenticated.

@@ -53,7 +53,7 @@ spring:
             client-secret: df683653dd3ad3ca9870ddcfc6b37f1fa54e2aa2
           discord:
             client-id: 1130348384830631987
-            client-secret: iw1zrAJ7W908yMelz0RisjfHcrRNBQDM
+            client-secret: WWXZtkgyAGTIraLbgSG8k7atSTZTFSNz
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope:
@@ -106,5 +106,13 @@ spring:
 #              - name
 #              - email
 #              - profile_image
+
+
   mustache:
     suffix: .html
+
+logging:
+  level:
+    root: error
+    '[org.springframework]': error
+    '[com.ground]': debug
