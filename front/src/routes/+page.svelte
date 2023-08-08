@@ -2,6 +2,18 @@
 	import Banner from "../lib/components/Banner.svelte"
 	import Ads from "../lib/components/Ads.svelte"
 	import Slider from "../lib/components/Slider.svelte"
+
+	//-------------------------Authentication---------------------------------------//
+	import current, { authentication } from "../lib/current";
+	import { onMount } from "svelte";
+
+	const token = $current.hash.substring(2);
+	// console.log('JWT: ' + token);
+	authentication.signIn(token);
+	onMount(() => {
+		history.replaceState({}, "home" ,"/#/");		
+	})
+
 </script>
 
 <svelte:head>
