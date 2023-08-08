@@ -3,19 +3,6 @@
 	import Ads from "../lib/components/Ads.svelte"
 	import Slider from "../lib/components/Slider.svelte"
 
-	//-------------------------Authentication---------------------------------------//
-	import current, { authentication } from "../lib/current";
-	import { onMount } from "svelte";
-
-	const token = $current.hash.substring(2);
-	// console.log('JWT: ' + token);
-
-  //Save JWT and principal to storage
-	authentication.signIn(token);
-	onMount(() => {
-		history.replaceState({}, "home" ,"/#/");
-	})
-
 </script>
 
 <svelte:head>
