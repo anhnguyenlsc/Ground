@@ -1,3 +1,36 @@
+<script lang="ts">
+	import axios from "axios";
+	import type { User } from "../../lib/domain/index";
+	// @ts-ignore
+	let user: User = {};
+
+	async function logIn() {
+		const response = await axios({
+			method: "POST",
+			url: "http://localhost:8080/api/authentication/login",
+			data: user
+		})
+
+		if (response.data !== null) {
+			if (response.data.status === "failed") {
+				//TODO : Pop up notification : Login failed
+				console.log('Log in failed')
+			}
+			else {
+				sessionStorage.setItem('token', response.data.token);
+				//sessionStorage.setItem('user', response.data.payload);
+				sessionStorage.setItem('avatar', response.data.payload.avatar);
+				location.href = 'http://localhost:5173/#/'
+			}
+		}
+	}
+</script>
+
+<svelte:head>
+	<title>Sign In</title>
+	<meta name="description" content="Sign In Page" />
+</svelte:head>
+
 <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
 	<div class="w-full relative py-3 sm:max-w-md sm:mx-auto">
 		<div class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
@@ -10,6 +43,7 @@
 					<h1 class="mt-6 text-center text-xl font-bold sm:text-2xl">
             Welcome back to Ground
 					</h1>
+					<!-- OAuth2 login -->
 					<div>
 						<span class="text-sm font-medium">SIGN IN WITH</span>
 						<div class="mt-1 grid grid-cols-3 gap-3">
@@ -86,14 +120,14 @@
 							<span class="bg-white px-2 text-gray-500">GROUND ACCOUNT</span>
 						</div>
 					</div>
-					<form class="space-y-4 md:space-y-6" action="#">
+					<form class="space-y-4 md:space-y-6" on:submit|preventDefault={logIn}>
 						<div>
 							<label for="email" class="block mb-2 text-sm font-medium text-gray-700 ">Your email</label>
-							<input type="email" name="email" id="email" class="block w-full rounded-md border border-gray-500/30 px-3 py-2 text-sm placeholder-gray-300/80 shadow-sm focus:border-gray-500 focus:outline-none focus:ring-0 sm:text-base"  placeholder="Enter your email" required="">
+							<input type="email" bind:value={user.email} name="email" id="email" class="block w-full rounded-md border border-gray-500/30 px-3 py-2 text-sm placeholder-gray-300/80 shadow-sm focus:border-gray-500 focus:outline-none focus:ring-0 sm:text-base"  placeholder="Enter your email" required="">
 						</div>
 						<div>
 							<label for="password" class="block mb-2 text-sm font-medium text-gray-700 ">Password</label>
-							<input type="password" name="password" id="password" placeholder="••••••••" class="block w-full rounded-md border border-gray-500/30 px-3 py-2 text-sm placeholder-gray-300/80 shadow-sm focus:border-gray-500 focus:outline-none focus:ring-0 sm:text-base" required="">
+							<input type="password" bind:value={user.password} name="password" id="password" placeholder="••••••••" class="block w-full rounded-md border border-gray-500/30 px-3 py-2 text-sm placeholder-gray-300/80 shadow-sm focus:border-gray-500 focus:outline-none focus:ring-0 sm:text-base" required="">
 						</div>
 						<div class="flex items-center justify-between">
 							<div class="flex items-start">

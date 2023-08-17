@@ -4,7 +4,7 @@
   let showFooter = true;
   // @ts-ignore
   $: {
-    showFooter = $page.url.pathname !== '/login'  &&  $page.url.pathname !== '/signup';
+    showFooter = $page.url.pathname !== '/login'  &&  $page.url.pathname !== '/signup' && $page.url.pathname !== '/verification';
   }
 </script>
 

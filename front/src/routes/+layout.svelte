@@ -4,9 +4,7 @@
 	import Header from '../lib/layout/Header.svelte';
 	import './styles.css';
 	
-	onMount(() => {
-		history.replaceState({}, "home" ,"/#/");		
-	})
+
 
 </script>
 

@@ -7,7 +7,7 @@
     "./.svelte-kit/tsconfig.json"
   ],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "jsx": "preserve",
     "types": ["vite/client"],

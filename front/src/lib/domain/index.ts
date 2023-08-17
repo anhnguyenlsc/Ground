@@ -17,6 +17,16 @@ export interface Link {
   title: string;
 }
 
+export interface User {
+  userId: number;
+  email: string;
+  password: string;
+  name: string;
+  nickname?: string;
+  avatar?: string;
+};
+
+
 export interface Member {
   id?: number;
   name: string;

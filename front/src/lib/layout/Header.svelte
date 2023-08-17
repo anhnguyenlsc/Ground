@@ -3,29 +3,32 @@
 	import { browser } from '$app/environment';
 	import {writable} from 'svelte/store';
 	import { authentication } from "$lib/current";
+	import { onMount } from 'svelte';
 
 	export const darkmode = writable(false);
 
 	let isDarkmode = false;
+	let avatarPic = '';
 
-	if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+	if (typeof window !== 'undefined' && typeof localStorage !== 'undefined' || typeof sessionStorage !== 'undefined') {
 		isDarkmode = localStorage.getItem('darkmode') === 'true';
 		if (isDarkmode === true) {
 			window.document.body.classList.toggle('dark')
 		}
+		avatarPic = sessionStorage.getItem('avatar');
  	}
 
 	function handleClick() {
 		isDarkmode = !isDarkmode;
 		// @ts-ignore
-    // eslint-disable-next-line no-unused-vars
+    	// eslint-disable-next-line no-unused-vars
 		darkmode.subscribe((val) => browser && localStorage.setItem('darkmode', isDarkmode));
 		window.document.body.classList.toggle('dark')
 }
 	let showHeader = true;
 		// @ts-ignore
 		$: {
-		showHeader = $page.url.pathname !== '/login'  &&  $page.url.pathname !== '/signup';
+		showHeader = $page.url.pathname !== '/login'  &&  $page.url.pathname !== '/signup' && $page.url.pathname !== '/verification';
 	}
 
 	//TODO: Handle signOut
@@ -33,12 +36,12 @@
 
 	//Log avatar
 	// console.log('Avatar: ' + $authentication?.principal.avatar);
-
+	console.log(avatarPic);
 
 </script>
 
 {#if showHeader}
-<header class="sticky top-0 z-20 flex h-26 items-center border-b border-b-gray-500/30 bg-white text-sm font-medium leading-6 dark:border-b-gray-500/70 dark:bg-gray-800">
+<header class="sticky top-0 z-20 flex h-26 items-center border-b border-b-gray-500/30 bg-white text-sm font-medium leading-6 dark:border-b-gray-500/70 dark:bg-gray-800" data-sveltekit-reload>
 	<div class="w-full container mx-auto max-w-6xl flex flex-wrap items-center mt-0 pt-3 md:pb-0">
 		<!-- Header top -->
 		<div class="mx-auto flex w-full px-4 lg:px-0 border-b pb-3 ">
@@ -95,7 +98,7 @@
 					</div>
 				</div>
 
-				{#if $authentication}
+				{#if $authentication || avatarPic}
 					<div class="ml-[102px] mr-5">
 						<a href="">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400 hover:cursor-pointer hover:text-blue-500 dark:hover:text-blue-200">
@@ -117,7 +120,7 @@
 							<button class="flex rounded-full bg-white focus:outline-none dark:bg-gray-800" type="button">
 							<span class="sr-only">Open user menu</span>
 							<span class="hidden flex-shrink-0 sm:flex">
-								<img class="h-8 w-8 rounded-full" src={$authentication.principal?.avatar} alt="">
+								<img class="h-8 w-8 rounded-full" src={avatarPic ?? $authentication.principal?.avatar} alt="avatar">
 							</span>
 							</button>
 						</div>

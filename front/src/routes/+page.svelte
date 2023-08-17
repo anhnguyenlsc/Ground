@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Banner from "../lib/components/Banner.svelte"
 	import Ads from "../lib/components/Ads.svelte"
 	import Slider from "../lib/components/Slider.svelte"
@@ -14,11 +14,12 @@
 		history.replaceState({}, "home" ,"/#/");		
 	})
 
+
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="" />
+	<meta name="description" content="Home Page" />
 </svelte:head>
 
 <div class="mx-auto max-w-6xl">
