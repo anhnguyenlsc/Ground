@@ -19,33 +19,13 @@ import java.text.ParseException;
 @RequestMapping("/authentication")
 @Slf4j
 public class AuthenticationPage {
-//  @GetMapping("/in")
-//  public Rendering in() {
-//    return Rendering.view("authentication/in").build();
-//  }
-//  @GetMapping("/up")
-//  public Rendering up() {
-//    return Rendering.view("authentication/up").build();
-//  }
-
-  @Autowired
-  SecurityUtils securityUtils;
-
-  @Autowired
-  ReactiveMongoTemplate template;
-
-  @Autowired
-  ObjectMapper objectMapper;
-
-  @GetMapping("/success")
-  public String success(String token, Model model) throws ParseException, JOSEException, JsonProcessingException {
-
-    var jwt = securityUtils.decode(token);
-
-    String json = objectMapper.writeValueAsString(jwt);
-    log.debug("jwt token success --->>{}",json);
-    model.addAttribute("jwt", json);
-
-    return "authentication/success";
+  @GetMapping("/in")
+  public Rendering in() {
+    return Rendering.view("authentication/in").build();
   }
+  @GetMapping("/up")
+  public Rendering up() {
+    return Rendering.view("authentication/up").build();
+  }
+
 }

@@ -76,9 +76,20 @@ spring:
               - name
               - email
               - profile_image
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: psoftverify@gmail.com
+    password: nvzygqlbvibmgfvr
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 
-#          github:
+  #          github:
 #            client-id: f4738ba18a6630bf3a40
 #            client-secret: 9c4d1203c8fbe058c921d7531cabc6b06d2ac63a
 #          discord:

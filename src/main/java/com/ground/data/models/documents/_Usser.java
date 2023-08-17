@@ -1,11 +1,9 @@
 package com.ground.data.models.documents;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.ground.domain.enums.authentication.UserAuthority;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Singular;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,7 +16,9 @@ import java.util.Collection;
 @Document
 @Data
 @Builder
-@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
+@AllArgsConstructor
+@NoArgsConstructor
+//@EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
 public class _Usser implements Persistable<String> {
 
     @Id
@@ -32,6 +32,11 @@ public class _Usser implements Persistable<String> {
 
     @Builder.Default
     boolean locked = false;
+
+    String userId;
+    String email;
+    String password;
+    String nickname;
 
     Long member;
 

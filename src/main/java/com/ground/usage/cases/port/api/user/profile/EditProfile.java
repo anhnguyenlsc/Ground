@@ -8,6 +8,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * 프로필을 수정하는 유스케이스
+ *  <br> Use cases to modify profiles
  */
 public interface EditProfile {
 
@@ -28,6 +29,7 @@ public interface EditProfile {
 
   /**
    * 수정할수 있는 프로필
+   * <br> Editable profiles
    * @param id
    * @return
    */

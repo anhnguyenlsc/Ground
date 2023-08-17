@@ -36,11 +36,16 @@ public class _User extends Variant<String, _User.Type, _User.Status, _User.Prope
   //private Status _status;
   //private Map<Property, Object> _properties;
 
+  private String _userId;
+  private String _email;
+  private String _name;
+  private String _nickname;
+
+
   private Map<String, Object> _meta;
 
   @DBRef
   private List<_Circle> _circles;
-
 
 
   @Override

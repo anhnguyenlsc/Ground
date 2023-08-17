@@ -20,7 +20,7 @@ public class JwtWebFilter extends AuthenticationWebFilter {
     SecurityUtils securityUtils;
 
     private static final ReactiveAuthenticationManager authenticationManager = authentication -> {
-        log.debug("jwtAuthenticationManager------------------------------>>{}", authentication);
+//        log.debug("jwtAuthenticationManager------------------------------>>{}", authentication);
         return Mono.just(authentication);
     };
 

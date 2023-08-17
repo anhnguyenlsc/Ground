@@ -53,7 +53,7 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
     final FindAndModifyOptions options = FindAndModifyOptions.options().returnNew(true).upsert(true);
 
     final Map<String,Function<OAuth2User,Tuple2<_UsserBuilder, _MemberBuilder>>> mapper = Map.of(
-            "google",u->{
+            "google",u -> {
                 Tuple2<_UsserBuilder,_MemberBuilder> t = Tuples.of(_Usser.builder(), _Member.builder());
 
                 t.getT1()
@@ -70,7 +70,7 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
 
                 return t;
             },
-            "github",u->{
+            "github",u -> {
                 Tuple2<_UsserBuilder,_MemberBuilder> t = Tuples.of(_Usser.builder(), _Member.builder());
 
                 t.getT1()
@@ -87,10 +87,8 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
 
                 return t;
             },
-            "discord",u->{
+            "discord",u -> {
                 Tuple2<_UsserBuilder,_MemberBuilder> t = Tuples.of(_Usser.builder(), _Member.builder());
-
-                //https://cdn.discordapp.com/avatars/829534784791117824/283443a85bb545dbe3a5e247d7c878ff.jpg
 
                 t.getT1()
                         .id(u.getAttribute("id"))
@@ -106,14 +104,48 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
 
                 return t;
             },
-            "kakao",u->{
+            "kakao",u -> { // Bug fixing...
                 Tuple2<_UsserBuilder,_MemberBuilder> t = Tuples.of(_Usser.builder(),_Member.builder());
                 return t;
             },
-            "naver",u->{
+            "naver",u -> {
                 Tuple2<_UsserBuilder,_MemberBuilder> t = Tuples.of(_Usser.builder(),_Member.builder());
+
+                t.getT1()
+                        .id(u.getName())
+                        .name(u.getAttribute("name"))
+                        .avatar(u.getAttribute("profile_image"))
+                        .provider("naver");
+
+                t.getT2()
+                        .user(u.getAttribute("id"))
+                        .name(u.getAttribute("name"))
+                        .avatar(u.getAttribute("profile_image"))
+                        .contact(ContactType.email, u.getAttribute("email"))
+                        .sex(u.getAttribute("gender"));
+
+                log.debug("From Naver -----------> [{}]", t);
                 return t;
             }
+//            , // Bug fixing...
+//            "facebook", u -> {
+//                Tuple2<_UsserBuilder, _MemberBuilder> t = Tuples.of(_Usser.builder(), _Member.builder());
+//
+//                t.getT1()
+//                        .id(u.getAttribute("id"))
+//                        .name(u.getAttribute(""))
+//                        .avatar(u.getAttribute(""))
+//                        .provider("facebook");
+//
+//                t.getT2()
+//                        .user(u.getAttribute("id"))
+//                        .name(u.getAttribute(""))
+//                        .avatar(u.getAttribute(""))
+//                        .contact(ContactType.email, u.getAttribute(""))
+//                        .sex(u.getAttribute(""));
+//
+//                return t;
+//            }
     );
 
     private Tuple2<_Usser, _Member> o2u(String provider, OAuth2User oAuth2User,InetSocketAddress ip) {

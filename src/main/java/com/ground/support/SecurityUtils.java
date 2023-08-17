@@ -15,6 +15,8 @@ import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.gen.ECKeyGenerator;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
 import org.bson.types.ObjectId;
@@ -34,6 +36,9 @@ import reactor.core.publisher.Mono;
 
 import java.text.ParseException;
 import java.util.Arrays;
+import java.util.Base64;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -80,8 +85,6 @@ public class SecurityUtils {
 //  }
 
   public JwtAuthentication encode(JwtAuthentication authentication) throws JOSEException {
-
-    //member.id , member.name, user.authorities
     JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
             .claim("principal", authentication.getPrincipal().getId())
             .claim("name", authentication.getName())
@@ -96,7 +99,17 @@ public class SecurityUtils {
 
     authentication.setCredentials(jwt.serialize());
     return authentication;
+  }
 
+  public String generateToken(String inputSubject) throws JOSEException {
+    JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
+            .claim("email", inputSubject)
+            .build();
+
+    SignedJWT jwt = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.ES256).keyID(eCKey.getKeyID()).build(), claimsSet);
+    jwt.sign(new ECDSASigner(eCKey));
+
+    return jwt.serialize();
   }
 
 //  public UsernamePasswordAuthenticationToken decode(String token) throws ParseException, JOSEException {
