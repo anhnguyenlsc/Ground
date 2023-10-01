@@ -125,6 +125,17 @@ public class SecurityUtils {
 //    return authenticationToken;
 //  }
 
+  public UsernamePasswordAuthenticationToken decodeToken(String token) throws ParseException, JOSEException {
+    SignedJWT jwt = SignedJWT.parse(token);
+    jwt.verify(verifier);
+    JWTClaimsSet claimsSet = jwt.getJWTClaimsSet();
+    return new UsernamePasswordAuthenticationToken(
+            claimsSet.getStringClaim("email"),
+            claimsSet.getStringClaim("email")
+    );
+  }
+
+
   public JwtAuthentication decode(String token) throws ParseException, JOSEException {
     SignedJWT jwt = SignedJWT.parse(token);
     jwt.verify(verifier);

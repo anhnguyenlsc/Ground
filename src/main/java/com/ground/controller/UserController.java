@@ -9,6 +9,7 @@ import com.ground.services.EmailVerificationService;
 import com.ground.services.ResponseService;
 import com.ground.services.UserService;
 import com.ground.services.bot.components.TelegramCommandBot;
+import com.ground.support.SecurityUtils;
 import com.nimbusds.jose.JOSEException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.Map;
 
 
@@ -29,6 +31,7 @@ import java.util.Map;
 public class UserController {
     private final UserService userService;
     private final UserRepository userRepo;
+    private final SecurityUtils securityUtils;
     private final EmailVerificationService emailVerificationService;
 
     @PostMapping("/signup")
@@ -75,4 +78,12 @@ public class UserController {
     public Mono<ResponseEntity<ResponseService>> logIn(@RequestBody _Usser logInUser) throws JOSEException {
         return userService.logInUser(logInUser).map(response -> new ResponseEntity<>(response, HttpStatus.OK));
     }
+
+//    @GetMapping("/viewProfile")
+//    public Mono<ResponseEntity<_Usser>> viewProfile(@RequestBody String jwt) throws ParseException, JOSEException {
+//        String userInfo = String.valueOf(securityUtils.decodeToken(jwt));
+//        System.out.println(userInfo);
+////        return userInfo;
+//    }
+
 }

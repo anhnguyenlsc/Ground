@@ -42,7 +42,7 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @Slf4j
 public class AuthenticationSuccessHandler implements ServerAuthenticationSuccessHandler {
     DefaultServerRedirectStrategy redirectStrategy = new DefaultServerRedirectStrategy();
-    URI uri = URI.create("http://localhost:5173/#/");
+    URI uri = URI.create("http://localhost:5173/#/"); //http://192.168.0.10:5173/#/
 
     @Autowired
     ReactiveMongoTemplate template;
@@ -167,7 +167,7 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
         log.debug("OAuth2User getName -----> [{}]", oAuth2User.getName());
 
         oAuth2User.getAttributes().forEach((k,v) -> {
-            log.debug("{} --------> [{}]", k,v);
+//            log.debug("{} --------> [{}]", k,v);
         });
 
         var t = o2u(authenticationResult.getAuthorizedClientRegistrationId(),oAuth2User,ip);
@@ -189,9 +189,9 @@ public class AuthenticationSuccessHandler implements ServerAuthenticationSuccess
                 })
                 .map(it -> {
                     try {
-                        log.debug("JWT encode it: " + securityUtils.encode(it).getCredentials());
+//                        log.debug("JWT encode it: " + securityUtils.encode(it).getCredentials());
 
-                        return UriComponentsBuilder.fromUriString("http://localhost:5173/#/" + securityUtils.encode(it).getCredentials()).build().toUri();
+                        return UriComponentsBuilder.fromUriString("http://localhost:5173/#/" + securityUtils.encode(it).getCredentials()).build().toUri(); //http://192.168.0.10:5173/#/
                     } catch (JOSEException e) {
                         log.error("jwt encode error -------->>{}",it);
                     }

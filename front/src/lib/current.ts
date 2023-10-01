@@ -3,7 +3,7 @@ import _api, { Api, API_URL } from './api';
 import { Storage } from "./support";
 import { derived, readable, writable } from "svelte/store";
 import type { Readable } from 'svelte/store';
-import type { Current, Authentication, Member, Link, Guild } from "./domain";
+import type { Current, Authentication, Member, Link, LinkMenu, Guild } from "./domain";
 
 
 const authentication = (() => {
@@ -16,6 +16,8 @@ const authentication = (() => {
     };
     const signOut = () => {
         Storage.reset('authentication');
+        Storage.reset('token');
+        Storage.reset('avatar');
         Api.authorization = undefined;
         set(undefined);
     };
@@ -70,6 +72,7 @@ const RootGguild = readable<Guild>(undefined, set => {
     _api.get<Guild>("guild").path('0').one().then(guild => set(guild));
 });
 
+
 const current = () => {
 
     const canRefesh = (event: HashChangeEvent): boolean => {
@@ -119,9 +122,13 @@ const path: Readable<string> = derived(root, (_current) => {
 });
 
 
-
 const paths = derived([root, RootGguild], ([_root, _guild]) => {
     if (!_guild) return [];
+    console.log(_root);
+    console.log(_guild);
+    // const __ = _root.;
+
+    // const _paths = 
 
 });
 

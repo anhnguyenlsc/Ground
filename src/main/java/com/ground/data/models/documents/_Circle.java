@@ -6,6 +6,7 @@ import com.ground.domain.enums.circle.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

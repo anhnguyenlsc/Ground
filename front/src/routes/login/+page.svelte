@@ -4,6 +4,7 @@
 	// @ts-ignore
 	let user: User = {};
 
+
 	async function logIn() {
 		const response = await axios({
 			method: "POST",
@@ -27,7 +28,7 @@
 </script>
 
 <svelte:head>
-	<title>Sign In</title>
+	<title>Sign In | Ground</title>
 	<meta name="description" content="Sign In Page" />
 </svelte:head>
 

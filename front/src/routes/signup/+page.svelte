@@ -1,7 +1,6 @@
 <script lang="ts">
 	import axios from "axios";
 	import type { User } from "../../lib/domain/index";
-	import { goto } from "$app/navigation";
 	// @ts-ignore
 	let user: User = {}; 
 
@@ -33,7 +32,7 @@
 </script>
 
 <svelte:head>
-	<title>Sign up</title>
+	<title>Sign up | Ground</title>
 	<meta name="description" content="Sign Up Page" />
 </svelte:head>
 

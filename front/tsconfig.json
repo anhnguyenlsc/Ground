@@ -12,5 +12,8 @@
     "jsx": "preserve",
     "types": ["vite/client"],
     "target": "ESNext",
+    "noEmit": true,
+    "noImplicitAny": false,
+    "allowImportingTsExtensions": true
   }
 }

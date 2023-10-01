@@ -70,7 +70,7 @@ public static long generate(long address) {
 
     sequence = sequence & SEQUENCE_MASK;
 
-    log.debug("Snowflake -------------------->>{} : {},{}",timestamp | hardware | sequence,timestamp,sequence);
+//    log.debug("Snowflake -------------------->>{} : {},{}",timestamp | hardware | sequence,timestamp,sequence);
     return timestamp | hardware | sequence;
 }
 

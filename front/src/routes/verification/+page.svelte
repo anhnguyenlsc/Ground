@@ -69,7 +69,7 @@
 </script>
 
 <svelte:head>
-	<title>Email verification</title>
+	<title>Email verification | Ground</title>
 	<meta name="description" content="Email verification" />
 </svelte:head>
 

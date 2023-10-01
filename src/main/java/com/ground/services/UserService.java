@@ -88,6 +88,25 @@ public class UserService implements EditProfile {
             );
   }
 
+  public Mono<ResponseService> viewProfileUser(String email) {
+      ResponseService resObj = new ResponseService();
+      Mono<_Usser> _optUser = userRepo.findByEmail(email);
+
+      return _optUser.flatMap(viewPro -> {
+          resObj.setStatus("success");
+          resObj.setMessage("User found");
+          resObj.setPayload(viewPro);
+          return Mono.just(resObj);
+      })
+      .switchIfEmpty(
+              Mono.defer(() -> {
+                  resObj.setStatus("failed");
+                  resObj.setMessage("Email address " + email + "does not exist");
+                  resObj.setPayload(null);
+                  return Mono.just(resObj);
+              })
+      );
+  }
   @Override
   @PreAuthorize("hasRole('USER')")
   public Mono<TransferOut<UserOUT>> viewProfile() {

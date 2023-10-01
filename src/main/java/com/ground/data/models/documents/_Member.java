@@ -2,10 +2,7 @@ package com.ground.data.models.documents;
 
 
 import com.ground.data.models.enums.ContactType;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Singular;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,6 +12,8 @@ import java.util.Map;
 @Data
 @Builder(toBuilder = true)
 @EqualsAndHashCode(callSuper = false, onlyExplicitlyIncluded = true)
+@AllArgsConstructor
+@NoArgsConstructor
 public class _Member {
 
     String user;

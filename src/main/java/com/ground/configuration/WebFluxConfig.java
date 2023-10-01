@@ -35,7 +35,7 @@ public class WebFluxConfig implements WebFluxConfigurer {
 
   @Override
   public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**").allowedOrigins("http://localhost:5173/#/").allowedMethods("GET", "POST", "PUT", "DELETE").maxAge(3600);
+    registry.addMapping("/**").allowedOrigins("http://localhost:5173/#/").allowedMethods("GET", "POST", "PUT", "DELETE").maxAge(3600); //http://192.168.0.10:5173/#/
   }
 
   @Override
